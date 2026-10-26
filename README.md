@@ -19,7 +19,7 @@ My studies cover programming, statistics, databases, data analysis, machine lear
 
 | Course | Topics |
 |---|---|
-| Mathematical Foundations | Mathematics for Data Science |
+| Mathematical Methods | Mathematics for Programming, Statistics & AI |
 | [Python Programming & Statistics](python_and_statistics/) | Python, statistics, NumPy, Pandas, Matplotlib |
 | SQL & Databases | SQL, queries and database management |
 | Business Intelligence | Data analysis and business insights |
