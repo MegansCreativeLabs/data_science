@@ -18,6 +18,29 @@ Efter den här lektionen ska jag kunna:
 
 ---
 
+## Quick Reference — Variabler & datatyper
+
+*Snabb uppslagning när du programmerar. Läs avsnitten längre ner om du vill förstå varför.*
+
+| Jag vill… | Exempel | Kom ihåg |
+|---|---|---|
+| Spara ett heltal | `age = 25` | `=` tilldelar ett värde |
+| Spara text | `name = "Megan"` | Text skrivs inom citattecken |
+| Spara ett decimaltal | `price = 19.90` | Punkt används som decimaltecken |
+| Spara sant/falskt | `is_student = True` | `True` och `False` har stor begynnelsebokstav |
+| Representera inget värde | `result = None` | `None` är inte samma sak som `0` |
+| Skapa en lista | `numbers = [1, 2, 3]` | Flera värden i en samling |
+| Skapa en dictionary | `person = {"name": "Megan"}` | Nyckel kopplas till värde |
+| Skriva ut ett värde | `print(name)` | Visar värdet i terminalen |
+| Kontrollera datatyp | `type(age)` | Returnerar typen, t.ex. `int` |
+| Ändra ett värde | `age = 26` | Ny tilldelning ersätter den gamla |
+| Öka med ett | `count = count + 1` | Använder tidigare värdet |
+| Skriva en kommentar | `# Förklaring` | Kommentaren körs inte |
+
+**Namnregler:** `first_name` (snake_case) för vanliga variabler; `MAX_ATTEMPTS` för värden som behandlas som konstanter. Python skiljer på `name` och `Name`.
+
+---
+
 ## 1. Vad är en variabel? (`variable`)
 
 En **variabel** är ett namn som gör att vi kan använda ett värde i programmet. Läraren beskriver det som en **låda med en etikett**: etiketten är namnet, och i lådan finns informationen.
