@@ -12,3 +12,6 @@ Video links were supplied by the student. Video contents have not been independe
 | 06 | Advanced Matplotlib | [Watch Video](https://www.youtube.com/watch?v=miCWJK49lYI) | [Read Notes](06_advanced_matplotlib.md) |
 | 07 | Choosing Visualizations | [Watch Video](https://www.youtube.com/watch?v=uFGfAxOnkqs) | [Read Notes](07_choosing_visualizations.md) |
 | 08 | Mini EDA in Python | [Watch Video](https://www.youtube.com/watch?v=KU5mmZRB15E) | [Read Notes](08_mini_eda_python.md) |
+| 09 | Sampling and Variation | [Watch Video](https://www.youtube.com/watch?v=AuXw6rq4CTs) | [Read Notes](09_sampling_and_variation.md) |
+| 10 | Confidence Intervals | [Watch Video](https://www.youtube.com/watch?v=xjYEYBvPaSc) | [Read Notes](10_confidence_intervals.md) |
+| 11 | Hypothesis Testing | [Watch Video](https://www.youtube.com/watch?v=jfBuCNus-HY) | [Read Notes](11_hypothesis_testing.md) |
