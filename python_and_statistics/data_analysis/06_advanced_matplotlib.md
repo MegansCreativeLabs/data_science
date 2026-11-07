@@ -1,10 +1,13 @@
 # 06 – Fördjupning i Matplotlib
 
-**Kurs:** Vecka 5 – Visualisering och explorativ dataanalys  
-**Video:** 5.1 – Fördjupning i Matplotlib  
+**Kurs:** Vecka 5 – Visualisering och explorativ dataanalys\
+**Video:** 5.1 – Fördjupning i Matplotlib\
 **Placering:** `data_science/data_analysis/06_advanced_matplotlib.md`
 
 > **Målet:** Du ska förstå hur du bygger tydliga diagram med Matplotlib, kombinerar flera diagram, visar trender och spridning samt undviker vanliga feltolkningar. Genomgången följer lärarens video, men rättar felaktig syntax och förtydligar sådant som går snabbt i videon.
+
+
+> **Illustrerad version:** Diagrammen nedan är genererade från lektionens exempeldata. Bilderna ligger i undermappen `images/` och visas på GitHub när mappstrukturen behålls.
 
 ## 1. Vi börjar med data från Pandas
 
@@ -15,7 +18,7 @@ Läraren använder två CSV-filer från tidigare lektioner:
 
 **Obs:** Filnamn och kolumnnamn i koden nedan är tydliga exempel. De måste matcha exakt det som faktiskt står i dina CSV-filer. Använd `print(df.columns.tolist())` om du är osäker.
 
-```python
+```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -34,7 +37,7 @@ print(summary_class)
 
 Följande exempeldata gör att du ändå kan testa lektionen från början till slut:
 
-```python
+```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -64,7 +67,7 @@ De följande kodexemplen använder dessa kolumnnamn. Kör antingen inläsningen 
 
 ### A. `plt` direkt – snabbt för enstaka diagram
 
-```python
+```
 plt.figure(figsize=(8, 5))
 plt.scatter(df["studietimmar"], df["provpoang"])
 plt.title("Studietimmar och provpoäng")
@@ -74,22 +77,36 @@ plt.grid(True)
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Spridningsdiagram](images/scatter.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 `plt.figure()` skapar en figur. `plt.scatter()` använder den aktuella axeln, som Matplotlib kan skapa automatiskt. Det är smidigt, men kan bli svårare att hålla reda på vid flera diagram.
 
 ### B. Pandas `.plot()` – genväg
 
-```python
+```
 df["provpoang"].plot(kind="hist", bins=10, title="Fördelning av provpoäng")
 plt.xlabel("Poäng")
 plt.ylabel("Antal")
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Histogram](images/hist.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 Pandas använder Matplotlib som standard för denna typ av plottning. `kind="hist"` betyder histogram.
 
 ### C. `fig, ax = plt.subplots()` – rekommenderat arbetssätt
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(df["studietimmar"], df["provpoang"])
 ax.set_title("Studietimmar och provpoäng")
@@ -98,6 +115,13 @@ ax.set_ylabel("Provpoäng")
 ax.grid(True)
 plt.show()
 ```
+
+**Så här ser resultatet ut:**
+
+![Spridningsdiagram med fig och ax](images/scatter.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
 
 - **`fig`** = hela bilden, alltså *Figure*.
 - **`ax`** = området där själva diagrammet ritas, alltså *Axes* (trots namnet är det ett objekt som innehåller båda koordinataxlarna).
@@ -109,11 +133,18 @@ plt.show()
 
 ## 3. Figurens storlek: `figsize`
 
-```python
+```
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.plot([1, 2, 3], [2, 1, 2])
 plt.show()
 ```
+
+**Så här ser resultatet ut:**
+
+![Exempel på figurstorlek](images/size.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
 
 `figsize=(10, 6)` betyder **10 tum bred** och **6 tum hög**. Det är inte direkt pixlar. Pixelstorleken vid sparning beror även på **DPI** (punkter per tum):
 
@@ -123,7 +154,7 @@ Exempel: `10 × 150 = 1500` pixlar när bilden sparas med `dpi=150`.
 
 Vill du ändra storleken i efterhand är den korrekta metoden:
 
-```python
+```
 fig.set_size_inches(12, 7)
 ```
 
@@ -131,7 +162,7 @@ fig.set_size_inches(12, 7)
 
 ## 4. Marginaler: `tight_layout()`
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.set_title("Ett diagram med marginaler")
 ax.set_xlabel("X-värde")
@@ -140,9 +171,16 @@ fig.tight_layout()
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Diagram med marginaler](images/layout.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 `fig.tight_layout()` justerar mellanrum så att rubriker och etiketter mer sällan krockar eller kapas. Alternativt kan du skapa figuren med `layout="constrained"`, som ofta fungerar bra för mer komplicerade figurer:
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5), layout="constrained")
 ```
 
@@ -152,7 +190,7 @@ Använd normalt **ett** layoutsystem åt gången.
 
 ## 5. Flera linjer på samma axel
 
-```python
+```
 x = [1, 2, 3]
 y1 = [2, 1, 2]
 y2 = [0.5, 1.5, 1.0]
@@ -168,15 +206,22 @@ ax.grid(True)
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Två linjer med teckenförklaring](images/lines.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 **Så fungerar det:** Varje `ax.plot(...)` lägger till en linje på **samma** diagramområde. `label` namnger linjen och `ax.legend()` visar en **teckenförklaring**.
 
-| Parameter | Betydelse | Exempel |
-|---|---|---|
-| `marker` | Symbol vid datapunkter | `"o"` = cirkel, `"s"` = fyrkant |
-| `linestyle` | Linjens utseende | `"-"`, `"--"`, `":"`, `"-."` |
-| `linewidth` | Linjens tjocklek | `2` |
-| `label` | Namn i teckenförklaringen | `"Serie 1"` |
-| `alpha` | Genomskinlighet | `0.6` |
+| **Parameter** | **Betydelse**             | **Exempel**                     |
+| ------------- | ------------------------- | ------------------------------- |
+| `marker`      | Symbol vid datapunkter    | `"o"` = cirkel, `"s"` = fyrkant |
+| `linestyle`   | Linjens utseende          | `"-"`, `"--"`, `":"`, `"-."`    |
+| `linewidth`   | Linjens tjocklek          | `2`                             |
+| `label`       | Namn i teckenförklaringen | `"Serie 1"`                     |
+| `alpha`       | Genomskinlighet           | `0.6`                           |
 
 **Vanligt misstag:** `label=` skapar inte en synlig teckenförklaring av sig självt. Lägg till `ax.legend()`.
 
@@ -184,7 +229,7 @@ plt.show()
 
 ## 6. Flera diagram i samma figur: subplots
 
-```python
+```
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
 axes[0, 0].hist(df["provpoang"].dropna(), bins=10)
@@ -209,12 +254,19 @@ fig.tight_layout()
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Fyra diagramområden, varav ett tomt](images/subplots.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 ### Vad betyder `axes[0, 1]`?
 
 Python räknar från **noll**. För ett rutnät med två rader och två kolumner:
 
-| | Kolumn 0 | Kolumn 1 |
-|---|---|---|
+|       | **Kolumn 0** | **Kolumn 1** |
+| ----- | ------------ | ------------ |
 | Rad 0 | `axes[0, 0]` | `axes[0, 1]` |
 | Rad 1 | `axes[1, 0]` | `axes[1, 1]` |
 
@@ -224,7 +276,7 @@ Python räknar från **noll**. För ett rutnät med två rader och två kolumner
 
 ### Delade skalor
 
-```python
+```
 fig, axes = plt.subplots(1, 2, sharey=True, figsize=(10, 4))
 ```
 
@@ -234,7 +286,7 @@ fig, axes = plt.subplots(1, 2, sharey=True, figsize=(10, 4))
 
 `fig.suptitle(...)` sätter en rubrik för **hela figuren**, medan `ax.set_title(...)` sätter rubrik på **ett diagram**.
 
-```python
+```
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 fig.suptitle("Två diagram", fontsize=14)
 fig.subplots_adjust(top=0.82)
@@ -248,14 +300,14 @@ fig.subplots_adjust(top=0.82)
 
 Läraren visar hur vi kan komplettera punkter med en rät linje:
 
-\[y = kx + m\]
+[y = kx + m]
 
 - **`k`** = lutningen: hur mycket linjens y-värde ändras när x ökar med 1.
 - **`m`** = skärningen med y-axeln, det vill säga linjens y-värde vid x = 0.
 
 På engelska skrivs ofta samma idé som `y = mx + b`. Bokstäverna byter roll, men matematiken är densamma.
 
-```python
+```
 # Välj bara rader där båda värdena finns
 valid = df[["studietimmar", "provpoang"]].dropna()
 x = valid["studietimmar"].to_numpy()
@@ -280,6 +332,13 @@ fig.tight_layout()
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Spridningsdiagram med trendlinje](images/trend.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 ### Ny syntax förklarad
 
 - `to_numpy()` gör om en Pandas Series till en NumPy-array.
@@ -298,7 +357,7 @@ plt.show()
 
 ## 8. Referenslinjer för medelvärden
 
-```python
+```
 x_mean = x.mean()
 y_mean = y.mean()
 
@@ -315,6 +374,13 @@ ax.legend(loc="lower right")
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Trendlinje och medelvärdeslinjer](images/reference.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 - `ax.axvline(...)`: **lodrät** linje vid ett visst x-värde.
 - `ax.axhline(...)`: **vågrät** linje vid ett visst y-värde.
 - `loc="lower right"`: placera teckenförklaringen nere till höger.
@@ -325,7 +391,7 @@ Referenslinjer hjälper dig att se vilka observationer som ligger över respekti
 
 ## 9. Boxplot – jämför fördelningar mellan klasser
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5))
 df.boxplot(column="provpoang", by="klass", ax=ax)
 ax.set_title("Provpoäng per klass")
@@ -335,6 +401,13 @@ fig.suptitle("")  # Tar bort Pandas automatiska överrubrik
 fig.tight_layout()
 plt.show()
 ```
+
+**Så här ser resultatet ut:**
+
+![Boxplot per klass](images/box.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
 
 En **boxplot** (låddiagram) visar mer än bara ett medelvärde:
 
@@ -359,11 +432,11 @@ Läraren jämför två mått som inte betyder samma sak:
 
 Formeln för standardfelet för medelvärdet är:
 
-\[SE = \frac{s}{\sqrt{n}}\]
+[SE = \frac{s}{\sqrt{n}}]
 
 Där `s` är stickprovets standardavvikelse och `n` är antalet observationer.
 
-```python
+```
 kategorier = summary_class["klass"]
 medel = summary_class["medelpoang"]
 std = summary_class["std_poang"]
@@ -381,6 +454,13 @@ fig.tight_layout()
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Stapeldiagram med standardfel](images/error.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 - `yerr=se` anger hur långt felstapeln ska sträcka sig **uppåt och nedåt** från varje medelvärde.
 - `capsize=4` lägger till små tvärstreck i ändarna.
 - `np.sqrt(antal)` beräknar kvadratroten ur antalet i varje klass.
@@ -389,7 +469,7 @@ plt.show()
 
 Om standardavvikelsen är 12 och antalet elever är 36:
 
-\[SE = 12 / \sqrt{36} = 12 / 6 = 2\]
+[SE = 12 / \sqrt{36} = 12 / 6 = 2]
 
 Felstaplarna visar då **medelvärde ± 2** när `yerr=se`.
 
@@ -399,7 +479,7 @@ Felstaplarna visar då **medelvärde ± 2** när `yerr=se`.
 
 ## 11. Ändra axelgränser och markeringar
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(df["studietimmar"], df["provpoang"])
 ax.set_xlim(0, 10)            # X-axeln visas från 0 till 10
@@ -411,6 +491,13 @@ ax.set_ylabel("Provpoäng")
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Axelgränser och skalmarkeringar](images/limits.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 - `set_xlim(min, max)` = synligt intervall på x-axeln.
 - `set_ylim(min, max)` = synligt intervall på y-axeln.
 - `set_xticks([...])` och `set_yticks([...])` = var skalans markeringar placeras.
@@ -419,7 +506,7 @@ plt.show()
 
 ### Vrid långa etiketter
 
-```python
+```
 fig, ax = plt.subplots()
 ax.bar(["Klass med långt namn A", "Klass med långt namn B"], [75, 82])
 ax.tick_params(axis="x", labelrotation=45)
@@ -427,13 +514,20 @@ fig.tight_layout()
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Roterade etiketter](images/rotation.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 Det här är ett enkelt och robust sätt att vrida texten 45 grader. Det gör kategorinamn lättare att läsa när de annars överlappar.
 
 ---
 
 ## 12. Spara diagram som bild
 
-```python
+```
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.hist(df["provpoang"].dropna(), bins=10)
 ax.set_title("Fördelning av provpoäng")
@@ -444,6 +538,13 @@ fig.savefig("histogram_provpoang.png", dpi=150, bbox_inches="tight")
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Sparat histogram](images/hist.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 `savefig()` sparar figuren som en bildfil. `dpi=150` styr upplösningen och `bbox_inches="tight"` hjälper till att få med etiketter i bildens kanter. Spara gärna **före** `plt.show()` för konsekvent beteende i olika miljöer.
 
 ---
@@ -452,7 +553,7 @@ plt.show()
 
 Det här är en sammanhängande kodcell som fungerar med **exempeldata från avsnitt 1** eller med egna data som har samma kolumner.
 
-```python
+```
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -489,22 +590,29 @@ fig.savefig("oversikt_elevresultat.png", dpi=150, bbox_inches="tight")
 plt.show()
 ```
 
+**Så här ser resultatet ut:**
+
+![Miniöversikt med flera diagram](images/overview.png)
+
+*Bild: Diagram skapat med Matplotlib utifrån exempeldata i avsnitt 1.*
+
+
 **Tolkning:** Histogrammet beskriver **fördelningen** av provpoäng. Spridningsdiagrammet beskriver ett möjligt **samband** mellan timmar och poäng. Stapeldiagrammet jämför **medelvärden mellan grupper**. De besvarar olika frågor om samma data.
 
 ---
 
 ## 14. Vanliga misstag och felsökning
 
-| Problem | Vanlig orsak | Lösning |
-|---|---|---|
-| `NameError: name 'plt' is not defined` | Matplotlib har inte importerats | `import matplotlib.pyplot as plt` |
-| `KeyError: 'provpoang'` | Kolumnnamnet matchar inte CSV-filen | `print(df.columns.tolist())` |
-| `FileNotFoundError` | CSV-filen ligger inte där Python letar | Kontrollera arbetskatalog och sökväg |
-| `ValueError` vid `np.polyfit` | Saknade/icke-numeriska värden eller för få användbara punkter | Rensa med `dropna()` och kontrollera datatyperna |
-| `IndexError` vid `axes[0, 1]` | Du skapade inte ett rutnät med flera Axes | Använd `plt.subplots(2, 2)` |
-| Legend saknas | `label` finns men `legend()` saknas | Kör `ax.legend()` |
-| Text kapas | Figuren är för liten eller marginalerna trånga | Större `figsize` och `fig.tight_layout()` |
-| Diagram ser missvisande ut | Olämpliga axelgränser | Kontrollera `set_xlim()` och `set_ylim()` |
+| **Problem**                            | **Vanlig orsak**                                              | **Lösning**                                      |
+| -------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------ |
+| `NameError: name 'plt' is not defined` | Matplotlib har inte importerats                               | `import matplotlib.pyplot as plt`                |
+| `KeyError: 'provpoang'`                | Kolumnnamnet matchar inte CSV-filen                           | `print(df.columns.tolist())`                     |
+| `FileNotFoundError`                    | CSV-filen ligger inte där Python letar                        | Kontrollera arbetskatalog och sökväg             |
+| `ValueError` vid `np.polyfit`          | Saknade/icke-numeriska värden eller för få användbara punkter | Rensa med `dropna()` och kontrollera datatyperna |
+| `IndexError` vid `axes[0, 1]`          | Du skapade inte ett rutnät med flera Axes                     | Använd `plt.subplots(2, 2)`                      |
+| Legend saknas                          | `label` finns men `legend()` saknas                           | Kör `ax.legend()`                                |
+| Text kapas                             | Figuren är för liten eller marginalerna trånga                | Större `figsize` och `fig.tight_layout()`        |
+| Diagram ser missvisande ut             | Olämpliga axelgränser                                         | Kontrollera `set_xlim()` och `set_ylim()`        |
 
 **VS Code/Jupyter:** Om ett paket saknas, installera det i **samma Pythonmiljö som notebookens kernel använder**. Du kan i en notebook köra `%pip install matplotlib pandas numpy` och sedan starta om kerneln om det behövs.
 
@@ -512,29 +620,29 @@ plt.show()
 
 ## 15. Quick Reference
 
-| Kod | Vad den gör |
-|---|---|
-| `fig, ax = plt.subplots()` | Skapar en figur och en axel |
-| `plt.subplots(2, 2)` | Skapar fyra diagramområden |
-| `figsize=(10, 6)` | Anger storlek i tum |
-| `fig.set_size_inches(12, 7)` | Ändrar storlek efteråt |
-| `ax.plot(x, y)` | Linjediagram |
-| `ax.scatter(x, y)` | Spridningsdiagram |
-| `ax.hist(data, bins=10)` | Histogram |
-| `ax.bar(kategorier, värden)` | Stapeldiagram |
-| `ax.boxplot(data)` | Låddiagram |
-| `ax.set_title("...")` | Diagramrubrik |
-| `fig.suptitle("...")` | Rubrik för hela figuren |
-| `ax.legend()` | Visar teckenförklaring |
-| `ax.grid(True)` | Visar stödlinjer |
-| `ax.axvline(x)` / `ax.axhline(y)` | Lodrät/vågrät referenslinje |
-| `np.polyfit(x, y, 1)` | Anpassar en rät linje |
-| `ax.bar(..., yerr=se, capsize=4)` | Staplar med felstaplar |
-| `ax.set_xlim(a, b)` | Ändrar x-axelns synliga intervall |
-| `ax.set_yticks([...])` | Väljer y-axelns markeringar |
-| `ax.tick_params(axis="x", labelrotation=45)` | Roterar x-etiketter |
-| `fig.tight_layout()` | Justerar marginaler |
-| `fig.savefig("bild.png", dpi=150)` | Sparar bilden |
+| **Kod**                                      | **Vad den gör**                   |
+| -------------------------------------------- | --------------------------------- |
+| `fig, ax = plt.subplots()`                   | Skapar en figur och en axel       |
+| `plt.subplots(2, 2)`                         | Skapar fyra diagramområden        |
+| `figsize=(10, 6)`                            | Anger storlek i tum               |
+| `fig.set_size_inches(12, 7)`                 | Ändrar storlek efteråt            |
+| `ax.plot(x, y)`                              | Linjediagram                      |
+| `ax.scatter(x, y)`                           | Spridningsdiagram                 |
+| `ax.hist(data, bins=10)`                     | Histogram                         |
+| `ax.bar(kategorier, värden)`                 | Stapeldiagram                     |
+| `ax.boxplot(data)`                           | Låddiagram                        |
+| `ax.set_title("...")`                        | Diagramrubrik                     |
+| `fig.suptitle("...")`                        | Rubrik för hela figuren           |
+| `ax.legend()`                                | Visar teckenförklaring            |
+| `ax.grid(True)`                              | Visar stödlinjer                  |
+| `ax.axvline(x)` / `ax.axhline(y)`            | Lodrät/vågrät referenslinje       |
+| `np.polyfit(x, y, 1)`                        | Anpassar en rät linje             |
+| `ax.bar(..., yerr=se, capsize=4)`            | Staplar med felstaplar            |
+| `ax.set_xlim(a, b)`                          | Ändrar x-axelns synliga intervall |
+| `ax.set_yticks([...])`                       | Väljer y-axelns markeringar       |
+| `ax.tick_params(axis="x", labelrotation=45)` | Roterar x-etiketter               |
+| `fig.tight_layout()`                         | Justerar marginaler               |
+| `fig.savefig("bild.png", dpi=150)`           | Sparar bilden                     |
 
 ---
 
@@ -562,7 +670,7 @@ Använd exempeldata i avsnitt 1, eller dina egna CSV-filer med samma kolumner.
 
 **1.**
 
-```python
+```
 fig, ax = plt.subplots()
 ax.scatter(df["studietimmar"], df["provpoang"])
 ax.set_title("Studietimmar och provpoäng")
@@ -573,7 +681,7 @@ plt.show()
 
 **2.**
 
-```python
+```
 fig, ax = plt.subplots(figsize=(12, 5))
 fig.savefig("stor_figur.png", dpi=150)
 ```
@@ -582,7 +690,7 @@ Bredd: `12 × 150 = 1800` pixlar. Höjd: `5 × 150 = 750` pixlar.
 
 **3.**
 
-```python
+```
 fig, ax = plt.subplots()
 ax.plot([1, 2, 3], [2, 4, 3], marker="o", label="A")
 ax.plot([1, 2, 3], [1, 3, 5], marker="s", label="B")
@@ -592,7 +700,7 @@ plt.show()
 
 **4.**
 
-```python
+```
 fig, axes = plt.subplots(2, 2, figsize=(10, 7))
 axes[0, 0].hist(df["provpoang"], bins=8)
 axes[0, 1].scatter(df["studietimmar"], df["provpoang"])
@@ -603,7 +711,7 @@ plt.show()
 
 **5.**
 
-```python
+```
 clean = df[["studietimmar", "provpoang"]].dropna()
 x = clean["studietimmar"].to_numpy()
 y = clean["provpoang"].to_numpy()
@@ -619,7 +727,7 @@ plt.show()
 
 **6.**
 
-```python
+```
 fig, ax = plt.subplots()
 df.boxplot(column="provpoang", by="klass", ax=ax)
 fig.suptitle("")
@@ -632,7 +740,7 @@ Lådan täcker de mittersta 50 % av observationerna (Q1 till Q3). Strecket i lå
 
 **8.**
 
-```python
+```
 fig, ax = plt.subplots()
 ax.plot([1, 2, 3], [3, 2, 4])
 fig.savefig("mitt_diagram.png", dpi=150)
