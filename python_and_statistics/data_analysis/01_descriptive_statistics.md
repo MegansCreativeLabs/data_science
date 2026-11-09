@@ -75,9 +75,9 @@ studietimmar = [2, 4, 4, 6, 8, 12]
 
 Addera alla värden och dela med antalet värden:
 
-\[
-\text{medelvärde} = \frac{2+4+4+6+8+12}{6} = \frac{36}{6}=6
-\]
+$$
+\text{medelvärde} = \frac{2+4+4+6+8+12}{6} = \frac{36}{6} = 6
+$$
 
 ```python
 medel = sum(studietimmar) / len(studietimmar)
