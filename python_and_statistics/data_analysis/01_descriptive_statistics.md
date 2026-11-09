@@ -234,9 +234,9 @@ Det här är **inte en allmän regel för all data**. Använd den inte okritiskt
 
 En **z-poäng** visar hur många standardavvikelser ett värde ligger från medelvärdet.
 
-\[
+$$
 z = \frac{x - \text{medelvärde}}{\text{standardavvikelse}}
-\]
+$$
 
 Om medelvärdet är `7.08` timmar, standardavvikelsen `3.65` och en elev har studerat `14` timmar:
 
@@ -261,13 +261,13 @@ Ett **extremvärde** är ett värde som sticker ut från övriga observationer.
 
 En vanlig metod för att flagga sådana värden är:
 
-\[
+$$
 \text{Nedre gräns} = Q1 - 1.5 \times IQR
-\]
+$$
 
-\[
+$$
 \text{Övre gräns} = Q3 + 1.5 \times IQR
-\]
+$$
 
 Om `Q1 = 4`, `Q3 = 10` och `IQR = 6` blir gränserna:
 
