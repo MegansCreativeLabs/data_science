@@ -10,15 +10,15 @@
 
 Deskriptiv statistik betyder **beskrivande statistik**. Vi använder tal och diagram för att sammanfatta data som vi faktiskt har samlat in. Målet är att kunna svara på tre frågor:
 
-1\. **Nivå:** Vad är ett typiskt värde?
+1. **Nivå:** Vad är ett typiskt värde?
 
-2\. **Spridning:** Hur mycket skiljer sig värdena åt?
+2. **Spridning:** Hur mycket skiljer sig värdena åt?
 
-3\. **Form och samband:** Hur är värdena fördelade, och verkar två variabler hänga ihop?
+3. **Form och samband:** Hur är värdena fördelade, och verkar två variabler hänga ihop?
 
 Vi beskriver först de data vi har. Att dra slutsatser om en större grupp utifrån ett urval hör till **statistisk inferens**, ett annat område. Skillnaden förklaras med ett exempel i avsnitt 2.1.
 
-> **Kom ihåg:**Ett enda medelvärde kan dölja stora skillnader mellan två grupper. Titta ofta på både läge och spridning._
+> **Kom ihåg:** Ett enda medelvärde kan dölja stora skillnader mellan två grupper. Titta ofta på både läge och spridning.
 
 ---
 
@@ -31,11 +31,8 @@ En **variabel** är något vi mäter eller registrerar, till exempel en elevs st
 Kategorisk data delar in observationer i grupper. Vi räknar exempelvis **antal**, **andelar** och **typvärde** (vanligaste kategorin).
 
 | Typ | Förklaring | Exempel |
-
 |---|---|---|
-
 | **Nominal** | Kategorier utan inbördes ordning | Bilmärke, stad, studiemetod |
-
 | **Ordinal** | Kategorier med naturlig ordning, men inte nödvändigtvis lika avstånd | Låg–medel–hög, instämmer inte–instämmer helt |
 
 Om enkätsvar kodas som 1, 2 och 3 blir de inte automatiskt numeriska mätvärden. Siffrorna kan bara vara etiketter.
@@ -47,11 +44,8 @@ Om enkätsvar kodas som 1, 2 och 3 blir de inte automatiskt numeriska mätvärde
 Numerisk data uttrycker mängder där skillnader mellan talen har mening.
 
 | Typ | Förklaring | Exempel |
-
 |---|---|---|
-
 | **Diskret** | Räkningsbara antal, ofta heltal | Antal barn, antal beställningar |
-
 | **Kontinuerlig** | Mätvärden som kan ligga mellan två tal | Tid, längd, avstånd |
 
 Ett kontinuerligt värde kan visas avrundat, exempelvis `7.5` timmar, utan att mätningen egentligen bara kan anta tiondelar.
@@ -121,13 +115,9 @@ studietimmar = [2, 4, 4, 6, 8, 12]
 ### 3.1 Medelvärde (mean)
 
 Addera alla värden och dela med antalet värden:
-
 $$
-
 \text{medelvärde} = \frac{2+4+4+6+8+12}{6} = \frac{36}{6} = 6
-
 $$
-
 ```python
 
 medel = sum(studietimmar) / len(studietimmar)
@@ -153,13 +143,9 @@ Sortera talen och hitta mitten.
 - **Jämnt antal:** medelvärdet av de två mittersta.
 
 I vår serie är de mittersta talen `4` och `6`:
-
 $$
-
 \text{median} = \frac{4+6}{2}=5
-
 $$
-
 ```python
 
 from statistics import median
@@ -242,36 +228,28 @@ Variationsbredden är lätt att förstå men mycket känslig för extremvärden.
 
 Exempel: om `Q1 = 4` och `Q3 = 10` är `IQR = 6`.
 
-> **Viktigt:**Det finns flera etablerade metoder att beräkna kvartiler. Små datamängder kan därför ge olika Q1/Q3 i olika program. Ange metod om exakta gränsvärden är viktiga._
+> **Viktigt:** Det finns flera etablerade metoder att beräkna kvartiler. Små datamängder kan därför ge olika Q1/Q3 i olika program. Ange metod om exakta gränsvärden är viktiga.
 
 ### 4.3 Varians
 
 Variansen mäter hur mycket värdena varierar kring medelvärdet.
 
-1\. Beräkna medelvärdet.
+1. Beräkna medelvärdet.
 
-2\. Räkna varje värdes avvikelse från medelvärdet.
+2. Räkna varje värdes avvikelse från medelvärdet.
 
-3\. Kvadrera avvikelserna så att minus och plus inte tar ut varandra.
+3. Kvadrera avvikelserna så att minus och plus inte tar ut varandra.
 
-4\. Summera och dela.
+4. Summera och dela.
 
 För **hela populationen** delar vi med `n`:
-
 $$
-
 \sigma^2 = \frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}
-
 $$
-
 För ett **stickprov** används vanligtvis `n - 1` vid uppskattning av populationsvariansen:
-
 $$
-
 s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
-
 $$
-
 Här betyder `xᵢ` ett enskilt värde, `μ` populationsmedelvärdet, `x̄` urvalsmedelvärdet och `n` antalet värden.
 
 Variansen uttrycks i **kvadrerade enheter**, exempelvis timmar², vilket är svårt att tolka direkt.
@@ -309,13 +287,9 @@ En **normalfördelning** är en symmetrisk, klockformad fördelning. Flest värd
 Om en variabel är ungefär normalfördelad gäller tumregeln:
 
 | Avstånd från medelvärdet | Ungefärlig andel |
-
 |---|---:|
-
 | Inom ±1 standardavvikelse | 68 % |
-
 | Inom ±2 standardavvikelser | 95 % |
-
 | Inom ±3 standardavvikelser | 99,7 % |
 
 Det här är **inte en allmän regel för all data**. Använd den inte okritiskt på kraftigt skeva fördelningar.
@@ -325,13 +299,9 @@ Det här är **inte en allmän regel för all data**. Använd den inte okritiskt
 ## 6. Z-poäng – hur ovanligt är ett värde?
 
 En **z-poäng** visar hur många standardavvikelser ett värde ligger från medelvärdet.
-
 $$
-
 z = \frac{x - \text{medelvärde}}{\text{standardavvikelse}}
-
 $$
-
 Om medelvärdet är `7.08` timmar, standardavvikelsen `3.65` och en elev har studerat `14` timmar:
 
 ```python
@@ -359,19 +329,12 @@ Z-poäng gör det lättare att jämföra värden som mäts på olika skalor. Hur
 Ett **extremvärde** är ett värde som sticker ut från övriga observationer.
 
 En vanlig metod för att flagga sådana värden är:
-
 $$
-
 \text{Nedre gräns} = Q1 - 1.5 \times IQR
-
 $$
-
 $$
-
 \text{Övre gräns} = Q3 + 1.5 \times IQR
-
 $$
-
 Om `Q1 = 4`, `Q3 = 10` och `IQR = 6` blir gränserna:
 
 - Nedre: `4 - 1.5 × 6 = -5`
@@ -387,15 +350,10 @@ Värdet `25` skulle då flaggas eftersom `25 > 19`.
 ## 8. Välj rätt diagram
 
 | Diagram | Passar för | Vad du ser |
-
 |---|---|---|
-
 | **Stapeldiagram** | Kategorier | Antal eller andel per kategori |
-
 | **Histogram** | Numeriska värden | Hur värden fördelar sig i intervall (**bins**) |
-
 | **Låddiagram / boxplot** | Numeriska värden | Median, kvartiler, IQR och möjliga extremvärden |
-
 | **Spridningsdiagram / scatter plot** | Två numeriska variabler | Mönster och möjliga samband |
 
 **Stapeldiagram kontra histogram:** Ett stapeldiagram jämför namngivna kategorier. Ett histogram grupperar numeriska värden i sammanhängande intervall. Hur breda intervall du väljer kan påverka hur fördelningen ser ut.
@@ -409,13 +367,9 @@ Om varje elev har både **studietimmar** och **provpoäng** kan vi göra ett spr
 **Pearsons korrelationskoefficient**, `r`, beskriver styrka och riktning på ett **linjärt** samband:
 
 | r-värde | Tolkning |
-
 |---|---|
-
 | Nära `+1` | Starkt positivt linjärt samband |
-
 | Nära `0` | Svagt eller inget linjärt samband |
-
 | Nära `−1` | Starkt negativt linjärt samband |
 
 Ett värde på `r = 0.99`, som i lärarens exempel, betyder ett mycket starkt positivt linjärt samband i de observerade uppgifterna.
@@ -476,56 +430,40 @@ Senare i vecka 4 gör vi samma slags sammanfattningar med **NumPy och Pandas**, 
 
 ## 11. Vanliga misstag
 
-1\. **Att räkna medelvärde på kategorier** som bara kodats med siffror.
+1. **Att räkna medelvärde på kategorier** som bara kodats med siffror.
 
-2\. **Att redovisa bara medelvärdet** när spridningen är stor eller fördelningen skev.
+2. **Att redovisa bara medelvärdet** när spridningen är stor eller fördelningen skev.
 
-3\. **Att blanda ihop population och urval**, särskilt när varians och standardavvikelse beräknas.
+3. **Att blanda ihop population och urval**, särskilt när varians och standardavvikelse beräknas.
 
-4\. **Att anta att ett extremvärde är fel** och radera det utan undersökning.
+4. **Att anta att ett extremvärde är fel** och radera det utan undersökning.
 
-5\. **Att använda 68–95–99,7-regeln på all data**, även när den inte är normalfördelad.
+5. **Att använda 68–95–99,7-regeln på all data**, även när den inte är normalfördelad.
 
-6\. **Att tolka korrelation som bevis för orsak.**
+6. **Att tolka korrelation som bevis för orsak.**
 
-7\. **Att blanda ihop histogram och stapeldiagram.**
+7. **Att blanda ihop histogram och stapeldiagram.**
 
 ---
 
 ## 12. Quick Reference
 
 | Begrepp | Kort förklaring |
-
 |---|---|
-
 | Deskriptiv statistik | Beskriver data vi har observerat |
-
 | Population | Hela gruppen vi är intresserade av |
-
 | Urval | Den del av gruppen vi har data från |
-
 | Medelvärde | Summan delad med antalet |
-
 | Median | Mitten i sorterad data |
-
 | Typvärde | Vanligaste värdet |
-
 | Variationsbredd | Max minus min |
-
 | Q1 och Q3 | Nedre och övre kvartilen |
-
 | IQR | Q3 minus Q1; spridning i mittenhälften |
-
 | Varians | Genomsnittlig kvadrerad avvikelse, med vald nämnare |
-
 | Standardavvikelse | Kvadratroten ur variansen |
-
 | Z-poäng | Avstånd från medelvärdet i standardavvikelser |
-
 | Outlier | Värde som sticker ut |
-
 | Korrelation | Mått på samvariation; Pearsons r gäller linjärt samband |
-
 | Kausalitet | Att något orsakar något annat |
 
 ---
