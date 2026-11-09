@@ -99,9 +99,9 @@ Sortera talen och hitta mitten.
 
 I vår serie är de mittersta talen `4` och `6`:
 
-\[
+$$
 \text{median} = \frac{4+6}{2}=5
-\]
+$$
 
 ```python
 from statistics import median
