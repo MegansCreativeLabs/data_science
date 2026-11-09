@@ -115,9 +115,11 @@ studietimmar = [2, 4, 4, 6, 8, 12]
 ### 3.1 Medelvärde (mean)
 
 Addera alla värden och dela med antalet värden:
+
 $$
 \text{medelvärde} = \frac{2+4+4+6+8+12}{6} = \frac{36}{6} = 6
 $$
+
 ```python
 
 medel = sum(studietimmar) / len(studietimmar)
@@ -143,9 +145,11 @@ Sortera talen och hitta mitten.
 - **Jämnt antal:** medelvärdet av de två mittersta.
 
 I vår serie är de mittersta talen `4` och `6`:
+
 $$
 \text{median} = \frac{4+6}{2}=5
 $$
+
 ```python
 
 from statistics import median
@@ -243,13 +247,17 @@ Variansen mäter hur mycket värdena varierar kring medelvärdet.
 4. Summera och dela.
 
 För **hela populationen** delar vi med `n`:
+
 $$
 \sigma^2 = \frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}
 $$
+
 För ett **stickprov** används vanligtvis `n - 1` vid uppskattning av populationsvariansen:
+
 $$
 s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
 $$
+
 Här betyder `xᵢ` ett enskilt värde, `μ` populationsmedelvärdet, `x̄` urvalsmedelvärdet och `n` antalet värden.
 
 Variansen uttrycks i **kvadrerade enheter**, exempelvis timmar², vilket är svårt att tolka direkt.
@@ -299,9 +307,11 @@ Det här är **inte en allmän regel för all data**. Använd den inte okritiskt
 ## 6. Z-poäng – hur ovanligt är ett värde?
 
 En **z-poäng** visar hur många standardavvikelser ett värde ligger från medelvärdet.
+
 $$
 z = \frac{x - \text{medelvärde}}{\text{standardavvikelse}}
 $$
+
 Om medelvärdet är `7.08` timmar, standardavvikelsen `3.65` och en elev har studerat `14` timmar:
 
 ```python
@@ -329,12 +339,17 @@ Z-poäng gör det lättare att jämföra värden som mäts på olika skalor. Hur
 Ett **extremvärde** är ett värde som sticker ut från övriga observationer.
 
 En vanlig metod för att flagga sådana värden är:
+
 $$
 \text{Nedre gräns} = Q1 - 1.5 \times IQR
 $$
+
+
+
 $$
 \text{Övre gräns} = Q3 + 1.5 \times IQR
 $$
+
 Om `Q1 = 4`, `Q3 = 10` och `IQR = 6` blir gränserna:
 
 - Nedre: `4 - 1.5 × 6 = -5`
