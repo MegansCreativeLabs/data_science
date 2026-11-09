@@ -180,15 +180,15 @@ Variansen mäter hur mycket värdena varierar kring medelvärdet.
 
 För **hela populationen** delar vi med `n`:
 
-\[
+$$
 \sigma^2 = \frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}
-\]
+$$
 
 För ett **stickprov** används vanligtvis `n - 1` vid uppskattning av populationsvariansen:
 
-\[
+$$
 s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
-\]
+$$
 
 Här betyder `xᵢ` ett enskilt värde, `μ` populationsmedelvärdet, `x̄` urvalsmedelvärdet och `n` antalet värden.
 
