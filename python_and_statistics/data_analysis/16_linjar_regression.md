@@ -3,6 +3,8 @@
 > **Kurs:** Pythonprogrammering och statistisk dataanalys  
 > **Syfte:** Förstå hur en rak linje används för att beskriva samband och göra prognoser.
 
+**Kursvideo #38 – Linjär regression:** [Se Joakims genomgång på YouTube](https://www.youtube.com/watch?v=ZsJ-DbKpD3s)
+
 ## 1. Varför använder vi regression?
 
 Vi vill ibland undersöka hur en **numerisk variabel** hänger ihop med en annan. Exempel: Hur förändras dricks i dollar när notans storlek ökar? Vi kallar notans storlek för **förklarande variabel** (`x`) och dricksen för **responsvariabel** (`y`).

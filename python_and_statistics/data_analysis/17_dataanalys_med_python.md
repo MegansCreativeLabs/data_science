@@ -3,7 +3,7 @@
 > **Kurs:** Pythonprogrammering och statistisk dataanalys  
 > **Underlag:** Joakims tillämpningslektion och genomgång av restaurangdatasetet `tips`. Pedagogiska tillägg är markerade som **Förklaring** eller **Komplettering**.
 
-[Se kursvideon på YouTube](https://www.youtube.com/watch?v=UVO13ZNn_10)
+**Kursvideo #39 – Dataanalys med Python:** [Se Joakims genomgång på YouTube](https://www.youtube.com/watch?v=UVO13ZNn_10)
 
 ## 1. Helheten: frågan bestämmer metoden
 

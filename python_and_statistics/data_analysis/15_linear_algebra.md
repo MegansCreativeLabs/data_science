@@ -234,7 +234,7 @@ $$
 Formeln för projektionen av `b` på en **nollskild** vektor `a` är:
 
 $$
-\operatorname{proj}_a(b)=\frac{b\cdot a}{a\cdot a}\,a
+\mathrm{proj}_a(b)=\frac{b\cdot a}{a\cdot a}\,a
 $$
 
 Vi tar det i tre steg.
@@ -254,7 +254,7 @@ $$
 **Steg 3 – skalfaktorn gånger a:**
 
 $$
-\operatorname{proj}_a(b)=\frac{10}{10}(3,1)=(3,1)
+\mathrm{proj}_a(b)=\frac{10}{10}(3,1)=(3,1)
 $$
 
 **Resultat:** Projektionen av `(2, 4)` på linjen genom `(3, 1)` är `(3, 1)`.
@@ -262,7 +262,7 @@ $$
 Det betyder **inte** att `b` och `a` är samma vektor. Det betyder att den del av `b` som ligger längs `a` motsvarar just `(3, 1)`. Resten är vinkelrät mot `a`:
 
 $$
-b-\operatorname{proj}_a(b)=(2,4)-(3,1)=(-1,3)
+b-\mathrm{proj}_a(b)=(2,4)-(3,1)=(-1,3)
 $$
 
 Kontroll: `(-1, 3) · (3, 1) = -3 + 3 = 0`, alltså vinkelrätt.
