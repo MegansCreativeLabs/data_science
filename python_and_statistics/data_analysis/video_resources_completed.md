@@ -15,3 +15,8 @@ Video links were supplied by the student. Video contents have not been independe
 | 09 | Sampling and Variation | [Watch Video](https://www.youtube.com/watch?v=AuXw6rq4CTs) | [Read Notes](09_sampling_and_variation.md) |
 | 10 | Confidence Intervals | [Watch Video](https://www.youtube.com/watch?v=xjYEYBvPaSc) | [Read Notes](10_confidence_intervals.md) |
 | 11 | Hypothesis Testing | [Watch Video](https://www.youtube.com/watch?v=jfBuCNus-HY) | [Read Notes](11_hypothesis_testing.md) |
+| 15 | Linear Algebra | [Watch Video](https://www.youtube.com/watch?v=joWRgVkJ8Ec) | [Read Notes](15_linear_algebra.md) |
+| 16 | Linear Regression | [Watch Video](https://www.youtube.com/watch?v=ZsJ-DbKpD3s) | [Read Notes](16_linjar_regression.md) |
+| 17 | Data Analysis with Python | [Watch Video](https://www.youtube.com/watch?v=UVO13ZNn_10) | [Read Notes](17_dataanalys_med_python.md) |
+
+> Lessons 12–14 are not listed in the supplied video resource file; their links have not been added.
