@@ -7,8 +7,6 @@
 
 ## 1. Helheten: frågan bestämmer metoden
 
-![Arbetsflöde för statistisk dataanalys](arbetsflode_statistisk_dataanalys.png)
-
 1. Formulera frågan.
 2. Förstå datan: rader, kolumner, datatyper och saknade värden.
 3. Utforska: sammanfattningar och diagram.
@@ -97,7 +95,11 @@ Joakim beräknar den genomsnittliga dricksandelen både med normalapproximation 
 
 $$SE=\frac{s}{\sqrt{n}}$$
 
-$$KI_{95\%}\approx\bar{x}\pm1.96\cdot SE$$
+**95 % konfidensintervall (normalapproximation):**
+
+$$
+\bar{x} \pm 1.96 \cdot SE
+$$
 
 **Förklaring:** $s$ är stickprovets standardavvikelse, $n$ antal observationer och $SE$ standardfelet – ett mått på hur mycket ett skattat medelvärde brukar variera mellan stickprov.
 
